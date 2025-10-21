@@ -1405,6 +1405,27 @@
 </body>
 </html>
     
-  </body>
+  </<!-- Visitor Counter (CountAPI) -->
+<div style="text-align:center; margin-top:20px;">
+  <h3>👀 Visitors Count:</h3>
+  <h2 id="visits">Loading...</h2>
+</div>
+
+<script>
+  // Unique identifiers for your site and page
+  const namespace = "nutryfix.com";  // Replace with your domain or GitHub repo name
+  const key = "homepage";           // Unique key for this page (you can use 'about', 'contact', etc.)
+
+  // API call to increment and get the visitor count
+  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("visits").textContent = data.value.toLocaleString();
+    })
+    .catch(() => {
+      document.getElementById("visits").textContent = "—";
+    });
+</script>
+>
   
 </html>
